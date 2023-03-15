@@ -1,6 +1,6 @@
 <?php
 
-class Message {
+class Messages {
 
     public static function setMessage($text, $type)
     {

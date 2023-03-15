@@ -8,7 +8,7 @@ class Bootstrap {
 
     public function __construct($request)
     {
-        $this->request = str_replace(ROOT_DOAMIN, "/", $request);
+        $this->request = str_replace(ROOT_DOMAIN, "/", $request);
         $this->action = 'index';
         $this->argument = '';
         $this->processRequest();
