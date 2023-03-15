@@ -3,7 +3,7 @@
 // DB
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_NAME', 'threads');
+define('DB_NAME', 'thread');
 define('DB_PASSWORD', '');
 
 //URL
@@ -25,3 +25,5 @@ foreach (glob("controllers/*.php") as $filename) {
 foreach (glob("models/*.php") as $filename) {
     include $filename;
    }
+
+require("views/main.php");

@@ -7,9 +7,10 @@ class HomeController extends Controller
         return 'home';
     }
 
-    public function index()
+    public function Index()
     {
         $model = new Home();
-        $this->returnView('index',$model->index());
+        $this->returnView('index');    
     }
+    
 }

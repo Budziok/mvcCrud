@@ -1,6 +1,6 @@
 <?php
 class Home extends Model{
-	public function index(){
+	public function Index(){
 		return;
 	}
 }

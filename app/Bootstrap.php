@@ -24,6 +24,7 @@ class Bootstrap {
                     return $this->controller;
                 } else {
                     //Metoda nie istnieje
+                    echo $this->action;
                     echo '<h2>Metoda nie istnieje</h2>';
                     return;
                 }
@@ -41,7 +42,7 @@ class Bootstrap {
 
     private function processRequest()
     {
-        if($this->request == '/') {
+        if($this->request == '/index.php') {
             $this->controller = new HomeController($this->action, $this->argument);
             return;
         }
@@ -59,7 +60,7 @@ class Bootstrap {
         $componentsCount = count($components);
 
         try {
-            $controllerName=ucfirst(strtolower($components[1]));
+            $controllerName=preg_replace('/.php/', '', ucfirst(strtolower($components[1])));
             $controllerClass = $controllerName . "Controller";
 
             if(!class_exists($controllerClass))
@@ -87,9 +88,11 @@ class Bootstrap {
             $this->controller = new $controllerClass($this->action, $this->argument);
         }
         catch (Exception $e) {
-            $this->action = 'error';
-            $this->argument = $e->getMessage();
-            $this->controller = new HomeController($this->action, $this->argument);
+            echo $controllerClass;
+            echo $e->getMessage();
+            //$this->action = 'error';
+            //$this->argument = $e->getMessage();
+            //$this->controller = new HomeController($this->action, $this->argument);
         }
     }
 }
