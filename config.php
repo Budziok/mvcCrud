@@ -25,5 +25,3 @@ foreach (glob("controllers/*.php") as $filename) {
 foreach (glob("models/*.php") as $filename) {
     include $filename;
    }
-
-require("views/main.php");

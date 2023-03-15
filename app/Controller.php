@@ -17,11 +17,15 @@ abstract class Controller {
         $this->{$this->action}() : $this->{$this->action}($this->request) ;
     }
 
-    protected function returnView($view, $model = null)
-    {
-        return $view = 'views/' . $this->getName() . '/' . $view . 'php';
-    }
-
+    protected function returnView($window, $model = null, $isChildView = true) {
+		$view = 'views/'. $this->getName() . '/' . $window. '.php';
+		if($isChildView){
+			require('views/main.php');
+		} else {
+			require($view);
+		}
+	}
+    
     protected function redirect($controller, $action=null)
     {
         $url = ROOT_URL . $controller;

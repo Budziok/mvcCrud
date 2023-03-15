@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function Index()
     {
         $model = new Home();
-        $this->returnView('index');    
+        $this->returnView('index', $model);    
     }
     
 }
