@@ -11,8 +11,8 @@
 	<nav class="navbar navbar-default">
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?php echo ROOT_URL; ?>">Start</a></li>
-            <li><a href="<?php echo ROOT_URL; ?>ads">Ogłoszenia</a></li>
+            <li><a href="<?php echo ROOT_URL; ?>home">Start</a></li>
+            <li><a href="<?php echo ROOT_URL; ?>threads">Ogłoszenia</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
