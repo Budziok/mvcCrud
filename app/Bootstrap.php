@@ -88,11 +88,10 @@ class Bootstrap {
             $this->controller = new $controllerClass($this->action, $this->argument);
         }
         catch (Exception $e) {
-            echo $controllerClass;
-            echo $e->getMessage();
-            //$this->action = 'error';
-            //$this->argument = $e->getMessage();
-            //$this->controller = new HomeController($this->action, $this->argument);
+
+            $this->action = 'error';
+            $this->argument = $e->getMessage();
+            $this->controller = new HomeController($this->action, $this->argument);
         }
     }
 }

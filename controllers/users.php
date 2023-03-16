@@ -52,6 +52,6 @@ class UsersController extends Controller
             unset($_SESSION['is_logged_in']);
             unset($_SESSION['user_data']);
             Messages::setMessage("Wylogoano","success");
-            header('Location:' .ROOT_URL);
+            $this->redirect('home');
     }
 }
