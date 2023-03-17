@@ -1,7 +1,4 @@
 <?php 
-
-use PHPMailer\PHPMailer\PHPMailer;
-
 class User extends Model 
 {
     public function register() {
@@ -59,7 +56,7 @@ class User extends Model
 	}
 
 	private function sendEmail($email) {
-		$mail = new PHPMailer(); 
+		$mail = new PHPMailer(true); 
  		$mail->CharSet="UTF-8"; 
  		$mail->isSMTP(); 
  		$mail->Host = "smtp.emaillabs.net.pl";
