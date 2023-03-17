@@ -1,5 +1,7 @@
 <?php 
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 class User extends Model 
 {
     public function register() {
@@ -21,6 +23,7 @@ class User extends Model
 			$this->execute();
 			
 			if($this->lastInsertId()){
+				$this->sendEmail($post['email']);
 				return true;
 			}
 		}
@@ -53,5 +56,25 @@ class User extends Model
 			}
 		}
 		return false;
+	}
+
+	private function sendEmail($email) {
+		$mail = new PHPMailer(); 
+ 		$mail->CharSet="UTF-8"; 
+ 		$mail->isSMTP(); 
+ 		$mail->Host = "smtp.emaillabs.net.pl";
+ 		$mail->SMTPAuth = true; 
+ 		$mail->Username = "xxxx.xxxx"; 
+ 		$mail->Password = "xxxxxx"; 
+ 		$mail->SMTPSecure = "ssl"; 
+		$mail->Port = 465; 
+ 		$mail->From = "kbudzik224@gmail.com";
+ 		$mail->FromName = "Witaj na Forum";
+ 		$mail->addAddress($email);
+ 		$mail->isHTML(true);
+ 		$mail->Subject = "Witaj w gronie użytkowników";
+ 		$mail->Body = "<i>Witamy w gronie użytkowników</i>";
+ 		$mail->AltBody = "To jest alternatywna wersja maila.";
+ 		$mail->send();
 	}
 }
